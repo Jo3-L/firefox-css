@@ -1,12 +1,12 @@
 # Firefox Custom CSS
 
-Partly my own code, partly taken from other sources (credited in comments).
+Custom CSS modifications for my Firefox.
+Some parts I wrote myself, others were taken from other sources (see the comments).
 
 ## Screenshot
 
-[Startpage Link](https://joe-l.tk) | [Source](https://github.com/jo3-l/startpage)
-
 ![How it looks](https://i.imgur.com/RdjXq8h.jpg)
+[Startpage Link](https://joe-l.tk) | [Source](https://github.com/jo3-l/startpage)
 
 ## Author
 
