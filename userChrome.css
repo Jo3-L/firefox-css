@@ -1,11 +1,13 @@
-/* Remove the bottom of the tab bar */
 :root {
-	--chrome-content-separator-color: none !important;
+  /* change active tab background */
+  --lwt-selected-tab-background-color: #131313 !important;
+  /* to change tab and nav bar background color */
+  --toolbar-bgcolor: black !important;
 }
 
 /* Add some padding to the tab bar to compensate for removing the bottom */
 .browser-toolbar {
-	padding-bottom: 2px;
+  padding-bottom: 2px;
 }
 
 /* Change the status bar when hovering over URL color to black */
@@ -14,7 +16,7 @@ statuspanel[type="overLink"] #statuspanel-label,
 statuspanel[type="status"] #statuspanel-label[value^="Looking"],
 statuspanel[type="status"] #statuspanel-label[value^="Connect"],
 statuspanel[type="status"] #statuspanel-label[value^="Waiting"],
-statuspanel[type="status"] #statuspanel-label[value^="Transfer"]{
+statuspanel[type="status"] #statuspanel-label[value^="Transfer"] {
   background-color: rgb(27, 27, 27) !important;
   color: rgb(199, 195, 195) !important;
   border: none !important;
@@ -22,48 +24,49 @@ statuspanel[type="status"] #statuspanel-label[value^="Transfer"]{
 
 /* New tab flash color => black */
 .browserContainer {
-	background-color: black !important;
+  background-color: black !important;
 }
 
 /* Tab changes start */
 
 /* Remove gap to left when window is halved */
 #TabsToolbar .titlebar-spacer[type="pre-tabs"] {
-	display: none !important; 
+  display: none !important;
 }
 
 /* Change tabs toolbar bg to black */
 #TabsToolbar {
-	background-color: black;
+  background-color: black;
 }
 
 /* Remove tab icon */
 .tabbrowser-tab .tab-icon-image {
-	display: none;
+  display: none;
 }
 
 .tab-throbber[busy] {
-	animation: unset !important;
-	background-image: url("chrome://global/skin/icons/loading.png") !important;
+  animation: unset !important;
+  background-image: url("chrome://global/skin/icons/loading.png") !important;
 }
 
 /* in active window */
 .tabbrowser-tab {
-	--tab-line-color: rgb(160, 0, 0);
+  --tab-line-color: #131313;
 }
 
 /* Show tab close only on hover */
 .tabbrowser-tab .tab-close-button {
-    display: none !important;
+  display: none !important;
 }
-  
+
 .tabbrowser-tab:hover .tab-close-button {
-    display: -moz-box !important;
+  display: -moz-box !important;
 }
 
 /* Hide white borders between tabs */
-.tabbrowser-tab::after, .tabbrowser-tab::before {
-    border: none !important;
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  border: none !important;
 }
 
 /* Tab changes end */
@@ -71,47 +74,50 @@ statuspanel[type="status"] #statuspanel-label[value^="Transfer"]{
 /* URL bar changes start */
 
 /* Disable megabar expansion. Source: https://github.com/WesleyBranton/Remove-Firefox-Megabar/blob/master/remove_megabar.css */
-@-moz-document url(chrome://browser/content/browser.xhtml) {
-    /* DISABLE EXPANDING START */
-    #urlbar[breakout][breakout-extend] {
-        top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
-        left: 0 !important;
-        width: 100% !important;
-    }
-    
-    #urlbar[breakout][breakout-extend] > #urlbar-input-container {
-        height: var(--urlbar-height) !important;
-        padding-block: 0 !important;
-        padding-inline: 0 !important;
-    }
-    
-    #urlbar[breakout][breakout-extend] > #urlbar-background {
-        animation-name: none !important;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
-    }
-}
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+  /* DISABLE EXPANDING START */
+  #urlbar[breakout][breakout-extend] {
+    top: calc(
+      (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
+    ) !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
 
+  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding-block: 0 !important;
+    padding-inline: 0 !important;
+  }
+
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation-name: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+  }
+}
 
 /* To hide underline on dropdown */
 .urlbarView-body-inner {
-	border-top: 1px solid transparent !important;
+  border-top: 1px solid transparent !important;
 }
 
 /* Change background for first search suggestion from black to blue */
 .urlbarView-row-inner {
-	background-color: black !important;
+  background-color: black !important;
 }
 
-/* Remove the icons for search suggestions */
-.urlbarView-favicon, .urlbarView-type-icon {
-	display: none !important;
+/* Dim search suggestion icons */
+.urlbarView-favicon,
+.urlbarView-type-icon {
+  filter: opacity(80%);
 }
 
 /* Change URL box text selection color */
 #urlbar ::-moz-selection,
 .searchbar-textbox ::-moz-selection {
-	background-color: #003d00;
-	color: #c6c6c6;
+  background-color: #003d00;
+  color: #c6c6c6;
 }
 
 /* Change some some font sizes */
@@ -121,198 +127,70 @@ statuspanel[type="status"] #statuspanel-label[value^="Transfer"]{
 .urlbarView-row .urlbarView-title,
 .urlbarView-row .urlbarView-secondary,
 .urlbarView-row .urlbarView-title-separator {
-	font-size: 15px !important;
+  font-size: 15px !important;
 }
 
 /* Borderless address bar */
-#urlbar, .searchbar-textbox {
-    border: none !important;
-    box-shadow: none !important;
-    background-color: transparent !important;
+#urlbar,
+.searchbar-textbox {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
 }
 
 #urlbar-background {
-	background-color: black !important;
-	border: none !important;
+  background-color: black !important;
+  border: none !important;
 }
 
 #urlbar {
-	font-size: 17px !important;
-	/* To fix megabar */
-	--urlbar-toolbar-height: 32px !important;
+  font-size: 17px !important;
+  /* To fix megabar */
+  --urlbar-toolbar-height: 32px !important;
 }
 
 /* Remove some icons */
 #fxa-toolbar-menu-button,
 #pocket-button-box {
-	display: none;
+  display: none;
 }
 
 /* URL bar changes end */
 
 /* Hide nav bar, source: https://github.com/Timvde/UserChrome-Tweaks/blob/master/toolbars/auto-hide.css */
 #nav-bar:not([customizing="true"]):not([inFullscreen]) {
-	min-height: 1px !important;
-	max-height: 0px !important;
-	margin-top: 1px !important;
-	margin-bottom: -1px !important;
-	transition: all 50ms linear 0s !important;
-	z-index: -5 !important;
+  min-height: 1px !important;
+  max-height: 0px !important;
+  margin-top: 1px !important;
+  margin-bottom: -1px !important;
+  transition: all 50ms linear 0s !important;
+  z-index: -5 !important;
 }
 
 #navigator-toolbox:hover:not([inFullscreen]) :-moz-any(#nav-bar),
 #navigator-toolbox:focus-within :-moz-any(#nav-bar) {
-	min-height: 32px !important;
-	max-height: 32px !important;
-	margin-top: 1px !important;
-	margin-bottom: -32px !important;
-	transition: all 50ms linear 0s !important;
-	z-index: 5 !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  margin-top: 1px !important;
+  margin-bottom: -32px !important;
+  transition: all 50ms linear 0s !important;
+  z-index: 5 !important;
 }
 
 /* to change min/max/close icon color in tab/title bar */
 #titlebar {
-	color: darkgray;
-	background-color: black;
+  color: darkgray;
+  background-color: black;
 }
-  
+
 :root:-moz-window-inactive #titlebar {
-    color: #757575;
+  color: #757575;
 }
-  
-/* to change tab and nav bar background color */
+
 :root {
-    --toolbar-bgcolor: black !important;
+  --toolbar-bgcolor: black !important;
 }
 
-/* Win10 menus, source: https://gist.github.com/Guerra24/6d7bc4be8849bb8d6eef3a2a74d68e1f */
-menupopup {
-	-moz-appearance: none !important;
-	padding: 8px 2px 8px 2px !important;
-	background-color: rgb(31, 32, 37) !important;
-	box-shadow: -0.5px -0.5px 0 , 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black !important;
-	min-width: 280px !important;
-}
-
-menuseparator {
-	-moz-appearance: none !important;
-	border: none !important;
-	padding: .5px 0px .5px 0px !important;
-	margin: 4px 8px 4px 8px !important;
-	background-color: #808080 !important;
-}
-
-menuitem, menu {
-	-moz-appearance: none !important;
-	color: white !important;
-	padding: 7.5px 0px 7.5px 0px !important;
-}
-
-menuitem[disabled="true"], menuitem[disabled="true"] > .menu-text {
-	color: gray !important;
-}
-
-menuitem:hover, menu:hover, menu[open="true"], menuitem[_moz-menuactive="true"]	 {
-	-moz-appearance: none !important;
-	padding: 7.5px 0px 7.5px 0px !important;
-	background-color: #414141 !important;
-}
-
-menugroup {
-	padding: 0px !important;
-	background-color: transparent !important;
-}
-
-menuitem > .menu-text, menuitem > .menu-iconic-text {
-	color: white !important;
-}
-
-menuitem[type="checkbox"] {
-	padding-left: 8px !important;
-	padding-top: 6.5px !important;
-	padding-bottom: 6.5px !important;
-}
-
-menuitem[type="radio"] {
-	padding-left: 8px !important;
-	padding-top: 6.5px !important;
-	padding-bottom: 6.5px !important;
-}
-
-menuitem[type="checkbox"] > .menu-iconic-text, menuitem[type="radio"] > .menu-iconic-text {
-	padding-left: 5px !important;
-}
-
-menuitem[checked="true"][type="checkbox"] > .menu-iconic-left {
-	padding: 7px 0px 0px 0px !important;
-	border: solid white;
-	border-width: 0 0 2px 2px;
-	transform: rotate(-45deg) scale(.75);
-	margin-bottom: 4px !important;
-}
-
-menuitem[checked="true"][type="radio"] > .menu-iconic-left {
-	padding: 1px !important;
-	border: solid white;
-	height: 17px !important;
-	border-radius: 100%;
-	background: white;
-	transform: scale(.5); 
-}
-
-menucaption {
-	background-color: transparent !important;
-	color: white !important;
-}
-
-#ContentSelectDropdown > menupopup {
-	background-image: none !important;
-}
-#ContentSelectDropdown {
-	padding: 0px !important;
-}
-
-menulist {
-	-moz-appearance: none !important;
-	padding: 4px 4px 4px 4px !important;
-	border: 2px solid #666666 !important;
-	background-color: transparent !important;
-}
-
-menulist:hover {
-	padding: 4px 4px 4px 4px !important;
-	border: 2px solid #999999 !important;
-	background-color: transparent !important;
-}
-
-menulist[open="true"]  {
-	border: 2px solid #666666 !important;
-	background-color: #333333 !important;
-}
-
-#context-back > .menu-iconic-left, #context-forward > .menu-iconic-left, #context-reload > .menu-iconic-left, #context-stop > .menu-iconic-left, #context-bookmarkpage > .menu-iconic-left {
-	padding: 0px !important;
-}
-
-.menu-iconic-left {
-	-moz-appearance: none !important;
-	padding: 0px 5px 0px 9px !important;
-}
-
-.menu-right {
-	-moz-appearance: none !important;
-	padding: 7.5px !important;
-	margin-right: 6px !important;
-	color: white !important;
-	border: solid white;
-	border-width: 0 2px 2px 0px;
-	transform: rotate(-45deg) scale(.55);
-}
-
-tooltip {
-	-moz-appearance: none !important;
-	color: white !important;
-	background-color: #2B2B2B !important;
-	border: 1px solid #767676 !important;
-	padding: 6.5px !important;
+#navigator-toolbox {
+  --tabs-border-color: #4d4dfe00 !important;
 }
